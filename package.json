@@ -1,0 +1,39 @@
+{
+  "name": "budgettracker",
+  "version": "1.0.0",
+  "description": "AS AN avid traveller, I WANT to be able to track withdrawals and deposits with or without a data/internet connection SO THAT my account balance is accurate when i'm traveling.",
+  "main": "index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "npm run build && node server.js",
+    "start:dev": "concurrently \"npm run server\" \"cd client && npm run start\"",
+    "server": "nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install",
+    "client": "cd client && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaclumpkens/budgetTracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eaclumpkens/budgetTracker/issues"
+  },
+  "homepage": "https://github.com/eaclumpkens/budgetTracker#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0",
+    "webpack-pwa-manifest": "^4.3.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "path": "^0.12.7"
+  }
+}
