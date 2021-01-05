@@ -8,7 +8,7 @@ const FILES_TO_CACHE = [
 ];
 
 const CACHE_NAME = 'budget-cache-v1';
-const DATA_CACHE_NAME = 'data-cache-v1';
+const RUNTIME = 'runtime';
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
@@ -21,3 +21,20 @@ self.addEventListener('install', function(event) {
     );
 });
 
+self.addEventListener('activate', (event) => {
+    const currentCaches = [CACHE_NAME, RUNTIME];
+    event.waitUntil(
+        caches.keys()
+        .then((cacheNames) => {
+            return cacheNames.filter((cacheName) => !currentCaches.includes(cachename));
+        })
+        .then((cachesToDelete) => {
+            return Promise.all(
+                cachesTGoDelete.map((cacheToDelete) => {
+                    return caches.delete(cacheToDelete);
+                })
+            );
+        })
+        .then(() => self.clients.claim())
+    );
+});
