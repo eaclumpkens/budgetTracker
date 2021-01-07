@@ -4,7 +4,7 @@ const request = indexedDB.open('budget', 1);
 
 request.onupgradeneeded = function (event) {
     const db = event.target.result;
-    db.createObjectStore('pending', { autoIncrement: true });
+    db.createObjectStore('budget', { autoIncrement: true });
   };
   
   request.onsuccess = function (event) {
@@ -19,15 +19,15 @@ request.onupgradeneeded = function (event) {
   };
   
   function saveRecord(record) {
-    const transaction = db.transaction(['pending'], 'readwrite');
-    const store = transaction.objectStore('pending');
+    const transaction = db.transaction(['budget'], 'readwrite');
+    const store = transaction.objectStore('budget');
 
     store.add(record);
   }
   
   function checkDatabase() {
-    const transaction = db.transaction(['pending'], 'readwrite');
-    const store = transaction.objectStore('pending');
+    const transaction = db.transaction(['budget'], 'readwrite');
+    const store = transaction.objectStore('budget');
     const getAll = store.getAll();
   
     getAll.onsuccess = function () {
@@ -36,14 +36,14 @@ request.onupgradeneeded = function (event) {
           method: 'POST',
           body: JSON.stringify(getAll.result),
           headers: {
-            Accept: 'application/json, text/plain, */*',
+            'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
           }
         })
           .then((response) => response.json())
           .then(() => {
-            const transaction = db.transaction(['pending'], 'readwrite');
-            const store = transaction.objectStore('pending');
+            const transaction = db.transaction(['budget'], 'readwrite');
+            const store = transaction.objectStore('budget');
   
             store.clear();
           });

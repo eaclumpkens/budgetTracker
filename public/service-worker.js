@@ -1,13 +1,13 @@
 const FILES_TO_CACHE = [
-    '/',
-    '/db.js',
-    '/index.html',
-    '/index.js',
-    '/styles.css',
-    '/api/transaction',
-    '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png',
-    '/manifest.webmanifest'
+    './',
+    './db.js',
+    './index.html',
+    './index.js',
+    './styles.css',
+    './api/transaction',
+    './icons/icon-192x192.png',
+    './icons/icon-512x512.png',
+    './manifest.webmanifest'
 ];
 
 const PRECACHE = 'budget-cache-v1';
