@@ -30,7 +30,7 @@ Giving users a fast and easy way to track their money is important, but allowing
 <a name="demo"></a>
 ### Heroku
 
-[Budget Tracker]()
+[Budget Tracker](https://budget-tracker-1000.herokuapp.com/)
 
 <a name="installation"></a>
 ### Installation
@@ -50,7 +50,7 @@ Single contribution project
 ### Gifs
 
 ##### App Demo
-![app-demo]() 
+![app-demo](./img/app-demo.gif) 
 
 ----
 
