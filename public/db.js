@@ -1,5 +1,5 @@
 let db;
-const request = indexDB.open('budget', 1);
+const request = indexedDB.open('budget', 1);
 
 request.onupgradeneeded = function (event) {
     const db = event.target.result;
@@ -14,7 +14,7 @@ request.onupgradeneeded = function (event) {
   };
   
   request.onerror = function (event) {
-    console.log('Woops! ' + event.target.errorCode);
+    console.log('Error: ' + event.target.errorCode);
   };
   
   function saveRecord(record) {
@@ -50,4 +50,4 @@ request.onupgradeneeded = function (event) {
     };
   }
 
-window.addEventListener('online', checkDatabase);
+window.addEventListener('online', checkDatabase());
